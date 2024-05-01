@@ -51,7 +51,7 @@
         <button id="submit-register">register</button>
       </form>
       <div id="submit-success" style="display: none">
-        <div></div>
+        <div class="success-message">Success</div>
       </div>
     </section>
   </body>
@@ -200,6 +200,12 @@
         changeSubmitState();
       });
 
+    function submitSucess() {
+      document.getElementById("register-form").remove();
+      const successElem = document.getElementById("submit-success");
+      successElem.style.display = "block";
+    }
+
     async function submit() {
       const form = document.getElementById("register-form");
       const ticket = form.ticket;
@@ -232,6 +238,7 @@
       }
 
       // submit true
+      submitSucess();
     };
   </script>
 </html>
