@@ -208,12 +208,16 @@
 
     async function submit() {
       const form = document.getElementById("register-form");
-      const ticket = form.ticket;
-      const username = form.username;
-      const password = form.password;
+      const ticket = form.ticket.value;
+      const username = form.username.value;
+      const password = form.password.value;
+      console.log(ticket);
 
       return await fetch(form.action, {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         cache: "no-cache",
         body: JSON.stringify({
           ticket: ticket,
